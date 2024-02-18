@@ -1,0 +1,850 @@
+{
+  "results": {
+    "A": {
+      "status": 200,
+      "frames": [
+        {
+          "schema": {
+            "refId": "A",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" },
+              "executedQueryString": "Expr: go_memstats_alloc_bytes{instance=\"cronus-saas:4000\"}\nStep: 30m0s"
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "go_memstats_alloc_bytes",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "__name__": "go_memstats_alloc_bytes",
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708050600000, 1708052400000, 1708054200000, 1708056000000,
+                1708057800000, 1708059600000, 1708061400000, 1708063200000,
+                1708065000000, 1708066800000, 1708068600000, 1708070400000,
+                1708072200000, 1708074000000, 1708075800000, 1708077600000,
+                1708079400000, 1708081200000, 1708083000000, 1708084800000,
+                1708086600000, 1708088400000, 1708090200000, 1708092000000,
+                1708093800000, 1708095600000, 1708097400000, 1708099200000,
+                1708101000000, 1708102800000, 1708104600000, 1708106400000,
+                1708108200000, 1708110000000, 1708111800000, 1708113600000,
+                1708115400000, 1708117200000, 1708119000000, 1708120800000,
+                1708122600000, 1708124400000, 1708126200000, 1708128000000,
+                1708129800000, 1708131600000, 1708133400000, 1708135200000,
+                1708137000000, 1708138800000, 1708140600000, 1708142400000,
+                1708144200000, 1708146000000, 1708147800000, 1708149600000,
+                1708151400000, 1708153200000, 1708155000000, 1708156800000,
+                1708158600000, 1708160400000, 1708162200000, 1708164000000,
+                1708165800000, 1708167600000, 1708169400000, 1708171200000,
+                1708173000000, 1708174800000, 1708176600000, 1708178400000,
+                1708180200000, 1708182000000, 1708183800000, 1708185600000,
+                1708187400000, 1708189200000, 1708191000000, 1708192800000,
+                1708194600000, 1708196400000, 1708198200000, 1708200000000,
+                1708201800000, 1708203600000, 1708205400000, 1708207200000,
+                1708209000000, 1708210800000, 1708212600000, 1708214400000,
+                1708216200000, 1708218000000, 1708219800000, 1708221600000,
+                1708223400000
+              ],
+              [
+                7406472, 14279632, 11401888, 11488136, 10264312, 10028808,
+                10669848, 8659536, 10572000, 10656080, 11798360, 11899480,
+                10109600, 9857872, 10017672, 11064496, 11208560, 11341336,
+                13635368, 13729512, 13900592, 13634320, 13832640, 13895240,
+                14164808, 14274072, 14508288, 14251880, 14415384, 14171752,
+                14090088, 14183048, 14106776, 14177320, 14334392, 14181328,
+                14355304, 14104808, 13995656, 14104120, 14346576, 14560448,
+                14333688, 14452664, 16395040, 15825152, 15989784, 15798680,
+                15994704, 15814968, 17782768, 18168000, 18373664, 18236768,
+                18091720, 3336360, 5177296, 6548000, 4793960, 7048672, 5820328,
+                6001688, 4880984, 4686632, 8190736, 6306872, 6111368, 6024416,
+                5869680, 6019496, 5868896, 5827488, 9299512, 9469832, 7546360,
+                7097888, 6977808, 7149272, 6949488, 7034656, 10347504, 10590240,
+                10372240, 10277992, 10174064, 10279192, 10148608, 9976248,
+                9480504, 9935152, 9528456, 9416248, 9222400, 9347960, 9419144,
+                11191584, 10645584
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "B": {
+      "status": 200,
+      "frames": [
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" },
+              "executedQueryString": "Expr: avg_over_time(page_requests_total[1h])\nStep: 30m0s"
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708050600000, 1708052400000, 1708054200000, 1708056000000,
+                1708059600000, 1708061400000, 1708065000000, 1708066800000,
+                1708070400000, 1708072200000, 1708074000000, 1708075800000,
+                1708077600000, 1708083000000, 1708084800000, 1708086600000,
+                1708090200000, 1708092000000, 1708097400000, 1708099200000,
+                1708102800000, 1708104600000, 1708106400000, 1708108200000,
+                1708110000000, 1708111800000, 1708113600000, 1708115400000,
+                1708117200000, 1708119000000, 1708120800000, 1708122600000,
+                1708124400000, 1708128000000, 1708129800000, 1708137000000,
+                1708138800000, 1708142400000, 1708144200000, 1708146000000,
+                1708147800000, 1708149600000, 1708151400000, 1708156800000,
+                1708158600000, 1708160400000, 1708162200000, 1708165800000,
+                1708167600000, 1708169400000, 1708171200000, 1708173000000,
+                1708178400000, 1708180200000, 1708182000000, 1708183800000,
+                1708187400000, 1708189200000, 1708191000000, 1708194600000,
+                1708196400000, 1708198200000, 1708200000000, 1708201800000,
+                1708209000000, 1708210800000, 1708212600000, 1708214400000,
+                1708216200000, 1708218000000, 1708219800000, 1708221600000,
+                1708223400000
+              ],
+              [
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.25, 2, 1.5, 1.2, 1, 1, 1,
+                1.25, 1.25, 1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.3333333333333333, 1,
+                1, 1, 6.5, 6.5, 1, 1, 3, 2.5, 1.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1.25, 1.25, 1, 1, 1, 1.5, 1.25, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1
+              ]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/ads.txt"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708050600000, 1708131600000, 1708133400000],
+              [1, 1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/alerts"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708221600000, 1708223400000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/apitokens"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708216200000, 1708218000000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/app-ads.txt"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708126200000, 1708128000000],
+              [2, 2]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/apple-touch-icon-120x120-precomposed.png"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708075800000, 1708077600000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/apple-touch-icon-120x120.png"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708075800000, 1708077600000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/apple-touch-icon-precomposed.png"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708075800000, 1708077600000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/apple-touch-icon.png"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708075800000, 1708077600000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/datasources"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708203600000, 1708205400000, 1708216200000, 1708218000000],
+              [1, 1, 1.5, 1.5]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/devices"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708097400000, 1708099200000, 1708196400000, 1708198200000,
+                1708219800000, 1708221600000
+              ],
+              [1, 1, 1, 1, 2, 2]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/docs"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708216200000, 1708218000000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/docs/alerts"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708108200000, 1708110000000, 1708149600000, 1708151400000],
+              [1, 1, 1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/docs/ios-privacy-policy"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708131600000, 1708133400000, 1708185600000, 1708187400000],
+              [1, 1, 1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/favicon.ico"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708074000000, 1708075800000, 1708077600000, 1708104600000,
+                1708106400000, 1708115400000, 1708117200000, 1708120800000,
+                1708122600000, 1708131600000, 1708133400000, 1708146000000,
+                1708147800000, 1708149600000, 1708151400000, 1708171200000,
+                1708173000000, 1708194600000, 1708196400000, 1708219800000,
+                1708221600000
+              ],
+              [
+                1.75, 1.8, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1
+              ]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/humans.txt"
+                }
+              }
+            ]
+          },
+          "data": { "values": [[1708050600000], [1]] }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/login"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708074000000, 1708075800000, 1708216200000, 1708218000000,
+                1708223400000
+              ],
+              [1.5, 1.5, 1, 1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/queries"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708209000000, 1708210800000, 1708216200000, 1708218000000],
+              [1, 1, 1.5, 1.5]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/robots.txt"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [
+                1708050600000, 1708097400000, 1708099200000, 1708102800000,
+                1708104600000, 1708108200000, 1708110000000, 1708167600000,
+                1708169400000, 1708182000000, 1708183800000, 1708196400000,
+                1708198200000, 1708203600000, 1708205400000, 1708209000000,
+                1708210800000
+              ],
+              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/signup"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708205400000, 1708207200000],
+              [1, 1]
+            ]
+          }
+        },
+        {
+          "schema": {
+            "refId": "B",
+            "meta": {
+              "type": "timeseries-multi",
+              "typeVersion": [0, 1],
+              "custom": { "resultType": "matrix" }
+            },
+            "fields": [
+              {
+                "name": "Time",
+                "type": "time",
+                "typeInfo": { "frame": "time.Time" },
+                "config": { "interval": 1800000 }
+              },
+              {
+                "name": "Value",
+                "type": "number",
+                "typeInfo": { "frame": "float64" },
+                "labels": {
+                  "instance": "cronus-saas:4000",
+                  "job": "cronus-saas",
+                  "route": "/wp-login.php"
+                }
+              }
+            ]
+          },
+          "data": {
+            "values": [
+              [1708196400000, 1708198200000],
+              [1, 1]
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
