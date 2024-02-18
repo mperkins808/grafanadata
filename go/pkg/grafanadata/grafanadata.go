@@ -101,8 +101,6 @@ func (c *grafanaClient) getPanelData(panelID int, dashboard GrafanaDashboardResp
 
 	endTime := time.Now().Unix() * int64(1000)
 	startTime := start.Unix() * int64(1000)
-	fmt.Println(endTime)
-	fmt.Println(startTime)
 
 	request := GrafanaDataQueryRequest{
 		Queries: targets,

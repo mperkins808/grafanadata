@@ -1,0 +1,29 @@
+{
+  "queries": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "c8f641f5-80c3-41e2-bf79-d307ae89cf8f"
+      },
+      "disableTextWrap": false,
+      "editorMode": "builder",
+      "expr": "page_requests_total",
+      "fullMetaSearch": false,
+      "includeNullMetadata": true,
+      "instant": false,
+      "legendFormat": "__auto",
+      "range": true,
+      "refId": "A",
+      "useBackend": false,
+      "exemplar": false,
+      "requestId": "1A",
+      "utcOffsetSec": 39600,
+      "interval": "",
+      "datasourceId": 1,
+      "intervalMs": 30000,
+      "maxDataPoints": 568
+    }
+  ],
+  "from": "1708207962285",
+  "to": "1708229562285"
+}
