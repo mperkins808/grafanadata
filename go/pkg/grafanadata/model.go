@@ -17,6 +17,7 @@ type Panel struct {
 	ID         int           `json:"id"`
 	Datasource Datasource    `json:"datasource"`
 	Targets    []interface{} `json:"targets"`
+	Title      string        `json:"title"`
 }
 
 type Datasource struct {
@@ -115,4 +116,18 @@ type PrometheusMetricsList struct {
 type PrometheusMetricLabels struct {
 	Status string              `json:"status"`
 	Data   []map[string]string `json:"data"`
+}
+
+/////////////////////////////////////////////////
+// To Query Dashboards and panels
+/////////////////////////////////////////////////
+
+type DashboardSearch struct {
+	UID   string `json:"uid"`
+	Title string `json:"title"`
+}
+
+type PanelSearch struct {
+	ID    int    `json:"id"`
+	Title string `json:"title"`
 }

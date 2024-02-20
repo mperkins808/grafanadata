@@ -183,6 +183,26 @@ func (c *grafanaClient) GetPanelDataFromID(uid string, panelID int, start time.T
 	return result, err
 }
 
+// retrieves the panel data from title
+func (c *grafanaClient) GetPanelDataFromTitle(uid string, title string, start time.Time) (Results, error) {
+	var result Results
+
+	dashboard, err := c.getDashboard(uid)
+	if err != nil {
+		return result, err
+	}
+
+	for i := range dashboard.Dashboard.Panels {
+		p := dashboard.Dashboard.Panels[i]
+		if p.Title != title {
+			continue
+		}
+		result, err = c.getPanelData(p.ID, dashboard, start)
+		return result, err
+	}
+	return result, fmt.Errorf("failed to find panel %v", title)
+}
+
 // extracts the uid and panel id from a url
 func ExtractArgs(urlStr string) (string, int) {
 	parsedUrl, err := url.Parse(urlStr)

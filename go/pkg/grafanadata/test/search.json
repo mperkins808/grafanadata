@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "uid": "bebca380-068d-463d-9c9c-1bb19cb8d2b3",
+    "title": "New dashboard",
+    "uri": "db/new-dashboard",
+    "url": "/d/bebca380-068d-463d-9c9c-1bb19cb8d2b3/new-dashboard",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 2,
+    "uid": "fa0c1f1b-333c-4d71-888a-33f92dbed223",
+    "title": "test",
+    "uri": "db/test",
+    "url": "/d/fa0c1f1b-333c-4d71-888a-33f92dbed223/test",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  }
+]
