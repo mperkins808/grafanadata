@@ -21,6 +21,8 @@ type GrafanaClient interface {
 	GetDashboardWithUID(uid string) (GrafanaDashboardResponse, error)
 	GetPanelDataFromURL(urlstr string, start time.Time) (Results, error)
 	GetPanelDataFromID(uid string, panelID int, start time.Time) (Results, error)
+	FetchDashboards() ([]DashboardSearch, error)
+	FetchPanelsFromDashboard(dashboard GrafanaDashboardResponse) []PanelSearch
 }
 
 // needed for unit tests
