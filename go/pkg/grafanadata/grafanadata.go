@@ -50,6 +50,20 @@ func NewGrafanaClient(urlstr string, token string) (GrafanaClient, error) {
 	}, nil
 }
 
+// NewCustomGrafanaClient creates a new Grafana Client with your own custom http Client
+func NewCustomGrafanaClient(c *http.Client, urlstr string, token string) (GrafanaClient, error) {
+	parsed, err := url.Parse(urlstr)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create Custom GrafanaClient. %v", err)
+	}
+
+	return &grafanaClient{
+		baseURL: parsed,
+		token:   token,
+		client:  c,
+	}, nil
+}
+
 // SetToken sets the API token for the client.
 func (c *grafanaClient) SetToken(token string) {
 	c.token = token
