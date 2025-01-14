@@ -2,6 +2,12 @@
 
 Query the Grafana API based off dashboards and panels and return the data in either prometheus or grafana format
 
+## Install
+
+```bash
+go get github.com/mperkins808/grafanadata/go/pkg/grafanadata
+```
+
 ## Example usage
 
 ```go
@@ -34,4 +40,46 @@ func main() {
 	log.Default().Println(data)
 }
 
+```
+
+### Convert response to a Prometheus Format
+
+```go
+func main() {
+
+	...
+
+	uid := "bebca380-068d-463d-9c9c-1bb19cb8d2b3"
+	panelID := 7
+
+	// Get last 24 hours
+	data, err := client.GetPanelDataFromID(uid, panelID, time.Now().Add(time.Hour*24*-1))
+	if err != nil {
+		return err
+	}
+	prometheusData := grafanadata.ConvertResultToPrometheusFormat(data)
+	log.Println(prometheusData)
+
+}
+```
+
+### Iterate through an entire dashboard
+
+```go
+func main() {
+	...
+
+	uid := "bebca380-068d-463d-9c9c-1bb19cb8d2b3"
+
+	resp, err := client.GetDashboardWithUID(uid)
+	if err != nil {
+		return
+	}
+
+	start := time.Now().Add(time.Hour * 24 * -2)
+	for _, panel := range resp.Dashboard.Panels {
+		data, _ := client.GetPanelDataFromID(uid, panel.ID, start)
+		log.Println(data)
+	}
+}
 ```
