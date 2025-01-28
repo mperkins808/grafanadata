@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 	"testing"
 	"time"
 )
@@ -48,15 +49,11 @@ func CreateMockGrafanaClient(t *testing.T, mockClient *MockHTTPClient) *grafanaC
 
 func TestCreateGrafanaClient(t *testing.T) {
 
-	c, err := NewGrafanaClient("foo", "bar")
+	_, err := NewGrafanaClient("foo", "bar")
 	if err != nil {
 		t.Fatalf("creating new grafana client error %v", err)
 	}
 
-	_, err = c.GetDashboardFromURL("foo")
-	if err == nil {
-		t.Fatalf("should have failed with bad url")
-	}
 }
 
 func TestGetDashboard(t *testing.T) {
@@ -156,5 +153,29 @@ func TestGetDashboards(t *testing.T) {
 	_, err = g.getDashboard("foo")
 	if err == nil {
 		t.Fatal("wanted error but was nil")
+	}
+}
+
+func TestVariousGrafanaUrls(t *testing.T) {
+	token := "foo"
+	urls := []string{
+		"http://grafana:3000",
+		"http://grafana:3000/",
+		"http://grafana/",
+		"http://grafana",
+		"https://host/grafana/",
+		"https://host/grafana",
+	}
+
+	for _, url := range urls {
+		client, err := NewGrafanaClient(url, token)
+		if err != nil {
+			t.Fatalf("could not created GrafanaClient from %v: %v", url, err)
+		}
+
+		host := client.GetHost()
+		if host != strings.TrimSuffix(url, "/") {
+			t.Errorf("expected %v. got %v", url, host)
+		}
 	}
 }

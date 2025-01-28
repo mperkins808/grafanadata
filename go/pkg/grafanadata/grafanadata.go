@@ -17,12 +17,11 @@ type GrafanaClient interface {
 	SetToken(token string)
 	NewRequest(method, endpoint string, body io.Reader) (*http.Request, error)
 	Do(req *http.Request) (*http.Response, error)
-	GetDashboardFromURL(urlstr string) (GrafanaDashboardResponse, error)
-	GetDashboardWithUID(uid string) (GrafanaDashboardResponse, error)
-	GetPanelDataFromURL(urlstr string, start time.Time) (Results, error)
+	GetDashboard(uid string) (GrafanaDashboardResponse, error)
 	GetPanelDataFromID(uid string, panelID int, start time.Time) (Results, error)
 	FetchDashboards() ([]DashboardSearch, error)
 	FetchPanelsFromDashboard(dashboard GrafanaDashboardResponse) []PanelSearch
+	GetHost() string
 }
 
 // needed for unit tests
@@ -72,7 +71,7 @@ func (c *grafanaClient) SetToken(token string) {
 func (c *grafanaClient) getDashboard(uid string) (GrafanaDashboardResponse, error) {
 	var grafanaDashboardResponse GrafanaDashboardResponse
 
-	host := fmt.Sprintf("%v://%v", c.baseURL.Scheme, c.baseURL.Host)
+	host := strings.TrimSuffix(c.baseURL.String(), "/")
 	query := fmt.Sprintf("%v/api/dashboards/uid/%v", host, uid)
 
 	req, err := c.NewRequest(http.MethodGet, query, nil)
@@ -129,7 +128,8 @@ func (c *grafanaClient) getPanelData(panelID int, dashboard GrafanaDashboardResp
 		return result, fmt.Errorf("failed to build request object %v", err)
 	}
 
-	query := fmt.Sprintf("%v://%v/api/ds/query", c.baseURL.Scheme, c.baseURL.Host)
+	host := strings.TrimSuffix(c.baseURL.String(), "/")
+	query := fmt.Sprintf("%v/api/ds/query", host)
 	req, err := c.NewRequest(http.MethodPost, query, bytes.NewBuffer(b))
 	if err != nil {
 		return result, fmt.Errorf("failed to build request %v", err)
@@ -154,36 +154,9 @@ func (c *grafanaClient) getPanelData(panelID int, dashboard GrafanaDashboardResp
 	return result, err
 }
 
-// retrieves a dashboard object from the URL
-func (c *grafanaClient) GetDashboardFromURL(urlstr string) (GrafanaDashboardResponse, error) {
-	var grafanaDashboardResponse GrafanaDashboardResponse
-	uid, _ := ExtractArgs(urlstr)
-
-	if uid == "" {
-		return grafanaDashboardResponse, fmt.Errorf("failed to extract uid from url")
-	}
-
-	grafanaDashboardResponse, err := c.getDashboard(uid)
-	return grafanaDashboardResponse, err
-}
-
 // retrieves a dashboard object from a uid
-func (c *grafanaClient) GetDashboardWithUID(uid string) (GrafanaDashboardResponse, error) {
+func (c *grafanaClient) GetDashboard(uid string) (GrafanaDashboardResponse, error) {
 	return c.getDashboard(uid)
-}
-
-// retrieves the panel data from a URL
-func (c *grafanaClient) GetPanelDataFromURL(urlstr string, start time.Time) (Results, error) {
-	uid, id := ExtractArgs(urlstr)
-
-	var result Results
-	dashboard, err := c.getDashboard(uid)
-	if err != nil {
-		return result, err
-	}
-
-	result, err = c.getPanelData(id, dashboard, start)
-	return result, err
 }
 
 // retrieves the panel data from an id
@@ -245,4 +218,8 @@ func ExtractArgs(urlStr string) (string, int) {
 	}
 
 	return uid, int(id)
+}
+
+func (c *grafanaClient) GetHost() string {
+	return strings.TrimSuffix(c.baseURL.String(), "/")
 }

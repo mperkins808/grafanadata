@@ -22,8 +22,12 @@ import (
 
 func main() {
 
-	u := "http://localhost:3000/d/bebca380-068d-463d-9c9c-1bb19cb8d2b3/new-dashboard?orgId=1&viewPanel=2"
+	u := "http://localhost:3000/"
 	t := "glsa_5N21WQvXza0oWkbqQvjOhII8yJYxGS0G_fbb82943"
+	uid := "bebca380-068d-463d-9c9c-1bb19cb8d2b3"
+	panelID := 7
+
+
 	client, err := grafanadata.NewGrafanaClient(u, t)
 
 	if err != nil {
@@ -31,7 +35,7 @@ func main() {
 	}
 
 	start := time.Now().Add(time.Hour * 24 * -2)
-	data, err := client.GetPanelDataFromURL(u, start)
+	data, err := client.GetPanelDataFromID(uid, panelID, start)
 
 	if err != nil {
 		log.Fatal(err)
@@ -71,7 +75,7 @@ func main() {
 
 	uid := "bebca380-068d-463d-9c9c-1bb19cb8d2b3"
 
-	resp, err := client.GetDashboardWithUID(uid)
+	resp, err := client.GetDashboard(uid)
 	if err != nil {
 		return
 	}
