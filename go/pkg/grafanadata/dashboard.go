@@ -5,11 +5,14 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 )
 
 // returns all the dashboards for a grafana instance
 func (c *grafanaClient) FetchDashboards() ([]DashboardSearch, error) {
-	q := fmt.Sprintf("%v://%v/api/search?type=dash-db", c.baseURL.Scheme, c.baseURL.Host)
+	host := strings.TrimSuffix(c.baseURL.String(), "/")
+
+	q := fmt.Sprintf("%v/api/search?type=dash-db", host)
 	req, err := c.NewRequest(http.MethodGet, q, nil)
 	if err != nil {
 		return nil, err
